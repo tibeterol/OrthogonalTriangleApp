@@ -1,0 +1,33 @@
+# Ignore the entire .vs directory
+.vs/
+.vscode/
+
+# Ignore bin and obj folders for all projects
+**/bin/
+**/obj/
+
+# Ignore build results
+*.dll
+*.exe
+*.pdb
+*.cache
+*.json
+*.txt
+apphost.exe
+
+# Ignore user-specific files
+*.rsuser
+*.suo
+*.user
+*.userosscache
+*.sln.docstates
+*.*proj.user
+
+# Ignore Rider related files
+.idea/
+*.sln.iml
+
+# Logs
+*.log
+
+# Add any additional files or folders you want to ignore here
