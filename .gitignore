@@ -12,7 +12,6 @@
 *.pdb
 *.cache
 *.json
-*.txt
 apphost.exe
 
 # Ignore user-specific files

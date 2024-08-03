@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace OrthogonalTriangleApp.Models
 {
-    internal class PathsModel
+    public class PathsModel
     {
         public List<LineModel> Path {  get; set; }
         public short sum { get; set; }
