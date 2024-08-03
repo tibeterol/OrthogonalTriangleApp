@@ -1,0 +1,14 @@
+C:\projects\OrthogonalTriangleApp\OrthogonalTriangleApp\bin\Debug\net8.0\OrthogonalTriangleApp.exe
+C:\projects\OrthogonalTriangleApp\OrthogonalTriangleApp\bin\Debug\net8.0\OrthogonalTriangleApp.deps.json
+C:\projects\OrthogonalTriangleApp\OrthogonalTriangleApp\bin\Debug\net8.0\OrthogonalTriangleApp.runtimeconfig.json
+C:\projects\OrthogonalTriangleApp\OrthogonalTriangleApp\bin\Debug\net8.0\OrthogonalTriangleApp.dll
+C:\projects\OrthogonalTriangleApp\OrthogonalTriangleApp\bin\Debug\net8.0\OrthogonalTriangleApp.pdb
+C:\projects\OrthogonalTriangleApp\OrthogonalTriangleApp\obj\Debug\net8.0\OrthogonalTriangleApp.GeneratedMSBuildEditorConfig.editorconfig
+C:\projects\OrthogonalTriangleApp\OrthogonalTriangleApp\obj\Debug\net8.0\OrthogonalTriangleApp.AssemblyInfoInputs.cache
+C:\projects\OrthogonalTriangleApp\OrthogonalTriangleApp\obj\Debug\net8.0\OrthogonalTriangleApp.AssemblyInfo.cs
+C:\projects\OrthogonalTriangleApp\OrthogonalTriangleApp\obj\Debug\net8.0\OrthogonalTriangleApp.csproj.CoreCompileInputs.cache
+C:\projects\OrthogonalTriangleApp\OrthogonalTriangleApp\obj\Debug\net8.0\OrthogonalTriangleApp.dll
+C:\projects\OrthogonalTriangleApp\OrthogonalTriangleApp\obj\Debug\net8.0\refint\OrthogonalTriangleApp.dll
+C:\projects\OrthogonalTriangleApp\OrthogonalTriangleApp\obj\Debug\net8.0\OrthogonalTriangleApp.pdb
+C:\projects\OrthogonalTriangleApp\OrthogonalTriangleApp\obj\Debug\net8.0\OrthogonalTriangleApp.genruntimeconfig.cache
+C:\projects\OrthogonalTriangleApp\OrthogonalTriangleApp\obj\Debug\net8.0\ref\OrthogonalTriangleApp.dll
