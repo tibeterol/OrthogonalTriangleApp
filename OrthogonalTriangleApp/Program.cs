@@ -1,14 +1,15 @@
 ﻿// Tibet Erol
+using OrthogonalTriangleApp.Enums;
 using OrthogonalTriangleApp.Models;
 
-solveTheAlgorithmAndPrintResults("Triangle");
+solveTheAlgorithmAndPrintResults("Triangle",TriangleType.Regular);
 Console.WriteLine("\n");
-solveTheAlgorithmAndPrintResults("Triangle2");
+solveTheAlgorithmAndPrintResults("Triangle2",TriangleType.Orthogonal);
 
 Console.ReadKey();
 
 
-void solveTheAlgorithmAndPrintResults(string fileName = "Triangle2")
+void solveTheAlgorithmAndPrintResults(string fileName = "Triangle2", TriangleType triangleType = TriangleType.Orthogonal)
 {
     string baseDirectory = AppDomain.CurrentDomain.BaseDirectory;
     string projectRoot = Path.Combine(baseDirectory, @"..\..\..\..\OrthogonalTriangleApp");
@@ -27,7 +28,7 @@ void solveTheAlgorithmAndPrintResults(string fileName = "Triangle2")
             index = (short)index
         }).ToList();
 
-        createPaths(allPaths, numsInTheLine);
+        createPaths(allPaths, numsInTheLine, triangleType);
     }
 
     calculateSumsOfCreatedPaths(allPaths);
@@ -50,7 +51,7 @@ bool isThisAprimeNumber(short num)
     return true;
 }
 
-void createPaths(List<PathsModel> paths, List<LineModel> numsInTheLine)
+void createPaths(List<PathsModel> paths, List<LineModel> numsInTheLine, TriangleType triangleType = TriangleType.Orthogonal)
 {
 
     if (numsInTheLine.Count == 1)
@@ -66,7 +67,13 @@ void createPaths(List<PathsModel> paths, List<LineModel> numsInTheLine)
             var newPaths = paths.ToList();
             newPaths.ForEach(p =>
             {
-                var adjacentElements = p.Path.Last().index == 0 ? numsInTheLine.Where(u => u.index == 0 || u.index == 1).ToList() : numsInTheLine.Where(u => u.index == p.Path.Last().index - 1 || u.index == p.Path.Last().index + 1 || u.index == p.Path.Last().index).ToList();
+                List<LineModel>? adjacentElements;
+
+                if (triangleType == TriangleType.Orthogonal)
+                    adjacentElements = p.Path.Last().index == 0 ? numsInTheLine.Where(u => u.index == 0 || u.index == 1).ToList() : numsInTheLine.Where(u => u.index == p.Path.Last().index - 1 || u.index == p.Path.Last().index + 1 || u.index == p.Path.Last().index).ToList();
+                else
+                    adjacentElements = numsInTheLine.Where(u => u.index == p.Path.Last().index + 1 || u.index == p.Path.Last().index).ToList();
+
                 var adjacentNonPrimeElements = adjacentElements.Where(u => !isThisAprimeNumber(u.value)).ToList();
 
                 if (adjacentNonPrimeElements.Count == 1 && p.stop != true)
