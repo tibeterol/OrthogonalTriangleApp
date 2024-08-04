@@ -55,6 +55,9 @@ void createPaths(List<PathsModel> paths, List<LineModel> numsInTheLine)
 
     if (numsInTheLine.Count == 1)
     {
+        if (isThisAprimeNumber(numsInTheLine[0].value))
+            throw new Exception("The top element of the triangle must not be a prime number!");
+
         List<LineModel> newPath = [numsInTheLine[0]];
         paths.Add(new PathsModel { Path = newPath, sum = 0});
     }
