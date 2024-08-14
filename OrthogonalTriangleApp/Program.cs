@@ -1,15 +1,14 @@
 ﻿// Tibet Erol
-using OrthogonalTriangleApp.Enums;
 using OrthogonalTriangleApp.Models;
 
-solveTheAlgorithmAndPrintResults("Triangle",TriangleType.Regular);
+solveTheAlgorithmAndPrintResults("Triangle");
 Console.WriteLine("\n");
-solveTheAlgorithmAndPrintResults("Triangle2",TriangleType.Orthogonal);
+solveTheAlgorithmAndPrintResults("Triangle2");
 
 Console.ReadKey();
 
 
-void solveTheAlgorithmAndPrintResults(string fileName = "Triangle2", TriangleType triangleType = TriangleType.Orthogonal)
+void solveTheAlgorithmAndPrintResults(string fileName = "Triangle2")
 {
     string baseDirectory = AppDomain.CurrentDomain.BaseDirectory;
     string projectRoot = Path.Combine(baseDirectory, @"..\..\..\..\OrthogonalTriangleApp");
@@ -28,12 +27,12 @@ void solveTheAlgorithmAndPrintResults(string fileName = "Triangle2", TriangleTyp
             index = (short)index
         }).ToList();
 
-        createPaths(allPaths, numsInTheLine, triangleType);
+        createPaths(allPaths, numsInTheLine);
     }
 
     calculateSumsOfCreatedPaths(allPaths);
 
-    var neededPathsElement = allPaths.OrderByDescending(u => u.sum).First();
+    var neededPathsElement = allPaths.Where(x => x.Path.Count == txtLines.Length).OrderByDescending(u => u.sum).First();
 
     Console.WriteLine("Chosen Path: " + string.Join(", ", neededPathsElement.Path.Select(u => u.value)));
     Console.WriteLine("Sum Value: " + neededPathsElement.sum);
@@ -51,7 +50,7 @@ bool isThisAprimeNumber(short num)
     return true;
 }
 
-void createPaths(List<PathsModel> paths, List<LineModel> numsInTheLine, TriangleType triangleType = TriangleType.Orthogonal)
+void createPaths(List<PathsModel> paths, List<LineModel> numsInTheLine)
 {
 
     if (numsInTheLine.Count == 1)
@@ -67,12 +66,7 @@ void createPaths(List<PathsModel> paths, List<LineModel> numsInTheLine, Triangle
             var newPaths = paths.ToList();
             newPaths.ForEach(p =>
             {
-                List<LineModel>? adjacentElements;
-
-                if (triangleType == TriangleType.Orthogonal)
-                    adjacentElements = p.Path.Last().index == 0 ? numsInTheLine.Where(u => u.index == 0 || u.index == 1).ToList() : numsInTheLine.Where(u => u.index == p.Path.Last().index - 1 || u.index == p.Path.Last().index + 1 || u.index == p.Path.Last().index).ToList();
-                else
-                    adjacentElements = numsInTheLine.Where(u => u.index == p.Path.Last().index + 1 || u.index == p.Path.Last().index).ToList();
+                List<LineModel> adjacentElements = numsInTheLine.Where(u => u.index == p.Path.Last().index + 1 || u.index == p.Path.Last().index).ToList();
 
                 var adjacentNonPrimeElements = adjacentElements.Where(u => !isThisAprimeNumber(u.value)).ToList();
 
