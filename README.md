@@ -3,10 +3,10 @@
 You will have an orthogonal triangle input from a file and you need to find the maximum sum of the numbers according to given rules below;
 
 1. You will start from the top and move downwards to an adjacent number as in below.
-2. You are only allowed to walk downwards and diagonally.
-3. You can only walk over NON PRIME NUMBERS.
-4. You have to reach at the end of the pyramid as much as possible.
-5. You have to treat the input as pyramid.
+2. You are only allowed to move downwards and diagonally in regular triangles.
+3. For orthogonal triangles, you are only allowed to move downwards and diagonally to the lower right.
+4. You can only walk over NON PRIME NUMBERS.
+5. You have to reach at the end of the triangle.
 
 According to above rules the maximum sum of the numbers from top to bottom in below example is 24.
 
